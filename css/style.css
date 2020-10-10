@@ -1,0 +1,80 @@
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: local('Roboto Light'), local('Roboto-Light'), url(https://fonts.gstatic.com/s/roboto/v20/KFOlCnqEu92Fr1MmSU5vAw.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 900;
+  font-display: swap;
+  src: local('Roboto Black'), local('Roboto-Black'), url(https://fonts.gstatic.com/s/roboto/v20/KFOlCnqEu92Fr1MmYUtvAw.ttf) format('truetype');
+}
+.boxed {
+  color: white;
+  padding: 1.5rem;
+}
+.rounded {
+  border-radius: 1.5rem;
+}
+.container {
+  margin-left: 5%;
+  margin-right: 5%;
+}
+.grid {
+  display: grid;
+  grid-template-columns: 2fr 2fr 0.5fr;
+  grid-template-rows: 1fr auto auto auto;
+  grid-template-areas: "header header header" "question question progress" "answer answer progress" "answer answer progress";
+}
+.item-question {
+  grid-area: question;
+  background-color: #2EC4B6;
+  font-size: 2em;
+  color: white;
+  padding: 1.5rem;
+  border-radius: 1.5rem;
+}
+.item-header {
+  grid-area: header;
+  font-size: 2.2em;
+  font-weight: 900;
+  text-align: start;
+  background-color: #011627;
+  color: white;
+  padding: 1.5rem;
+  border-radius: 1.5rem;
+}
+.item-progress {
+  grid-area: progress;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(1fr, 6);
+  align-items: center;
+}
+.item-answer {
+  grid-area: answer;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 15px 15px;
+  margin-top: 5px;
+}
+.item-answer div {
+  background-color: #F6F7F8;
+  color: white;
+  padding: 1.5rem;
+  border-radius: 1.5rem;
+  color: #011627;
+  font-size: 1.5em;
+  border: 1px solid #011627;
+}
+body {
+  font-family: 'Roboto', sans-serif;
+  text-align: center;
+  margin: 0;
+  margin-left: 5%;
+  margin-right: 5%;
+}

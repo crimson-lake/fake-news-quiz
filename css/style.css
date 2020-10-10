@@ -8,6 +8,13 @@
 @font-face {
   font-family: 'Roboto';
   font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: local('Roboto Medium'), local('Roboto-Medium'), url(https://fonts.gstatic.com/s/roboto/v20/KFOlCnqEu92Fr1MmEU9vAw.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
   font-weight: 900;
   font-display: swap;
   src: local('Roboto Black'), local('Roboto-Black'), url(https://fonts.gstatic.com/s/roboto/v20/KFOlCnqEu92Fr1MmYUtvAw.ttf) format('truetype');
@@ -26,8 +33,10 @@
 .grid {
   display: grid;
   grid-template-columns: 2fr 2fr 0.5fr;
-  grid-template-rows: 1fr auto auto auto;
+  grid-template-rows: 2fr auto auto auto;
   grid-template-areas: "header header header" "question question progress" "answer answer progress" "answer answer progress";
+  margin-left: 5%;
+  margin-right: 5%;
 }
 .item-question {
   grid-area: question;
@@ -42,10 +51,8 @@
   font-size: 2.2em;
   font-weight: 900;
   text-align: start;
-  background-color: #011627;
   color: white;
   padding: 1.5rem;
-  border-radius: 1.5rem;
 }
 .item-progress {
   grid-area: progress;
@@ -54,27 +61,38 @@
   grid-template-rows: repeat(1fr, 6);
   align-items: center;
 }
+.item-progress div {
+  color: white;
+  font-size: 2em;
+}
 .item-answer {
   grid-area: answer;
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr;
-  gap: 15px 15px;
-  margin-top: 5px;
+  gap: 30px 30px;
+  margin-top: 30px;
 }
 .item-answer div {
   background-color: #F6F7F8;
+  border: 1px solid #F6F7F8;
   color: white;
   padding: 1.5rem;
   border-radius: 1.5rem;
   color: #011627;
   font-size: 1.5em;
-  border: 1px solid #011627;
+  cursor: pointer;
+  transition: 1s;
+}
+.item-answer div:hover {
+  background-color: transparent;
+  box-shadow: 0 4px 8px 0 #011627;
+  color: #F6F7F8;
 }
 body {
   font-family: 'Roboto', sans-serif;
   text-align: center;
   margin: 0;
-  margin-left: 5%;
-  margin-right: 5%;
+  background-image: url("https://images.unsplash.com/photo-1576086213369-97a306d36557?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=80");
+  background-size: cover;
 }

@@ -1,5 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;500;900&display=swap');
 @body-margin: 5%;
+@background-pic: url("https://images.unsplash.com/photo-1576086213369-97a306d36557?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=80"); 
 
 #colors() {
     header: #011627;
@@ -26,12 +27,13 @@
 .grid {
     display: grid;
     grid-template-columns: 2fr 2fr 0.5fr;
-    grid-template-rows: 1fr auto auto auto;
+    grid-template-rows: 2fr auto auto auto;
     grid-template-areas: 
         "header header header"
         "question question progress"
         "answer answer progress"
         "answer answer progress";
+    .container();
 }
 
 .item-question {
@@ -47,9 +49,7 @@
     font-size: 2.2em;
     font-weight: 900;
     text-align: start;
-    background-color: #colors[header];
     .boxed();
-    .rounded();
 }
 
 .item-progress {
@@ -60,27 +60,40 @@
     align-items: center;
 }
 
+.item-progress div {
+    color: #colors[light];
+    font-size: 2em;
+}
+
 .item-answer {
     grid-area: answer;
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr;
-    gap: 15px 15px;
-    margin-top: 5px;
+    gap: 30px 30px;
+    margin-top: 30px;
 }
 
 .item-answer div {
     background-color: #colors[answer];
+    border: 1px solid #colors[answer];
     .boxed();
-    .rounded;
+    .rounded();
     color: #colors[dark];
     font-size: 1.5em;
-    border: 1px solid #colors[dark];
+    cursor: pointer;
+    transition: 1s;
+    &:hover {
+        background-color: transparent;
+        box-shadow: 0 4px 8px 0 #colors[dark];
+        color: #colors[answer];
+    }
 }
 
 body {
     font-family: 'Roboto', sans-serif;
     text-align: center;
     margin: 0;
-    .container();
+    background-image: @background-pic;
+    background-size: cover;
 }

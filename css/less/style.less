@@ -6,8 +6,10 @@
     header: #011627;
     question: #2EC4B6;
     answer: #F6F7F8;
-    light: white;
+    light:#F6F7F8;
     dark: #011627;
+    button: pink;
+    result: yellow;
 }
 
 .boxed {
@@ -24,32 +26,56 @@
     margin-right: @body-margin;
 }
 
+.clickable {
+    cursor: pointer;
+    transition: 1s;
+    &:hover {
+        background-color: transparent;
+        box-shadow: 0 4px 8px 0 #colors[dark];
+        color: #colors[answer];
+    }
+}
+
 .grid {
     display: grid;
     grid-template-columns: 2fr 2fr 0.5fr;
-    grid-template-rows: 2fr auto auto auto;
+    grid-template-rows: 1fr auto 2fr 2fr 1fr;
     grid-template-areas: 
-        "header header header"
+        "header header result"
         "question question progress"
         "answer answer progress"
-        "answer answer progress";
+        "answer answer progress"
+        "button button .";
     .container();
 }
 
 .item-question {
     grid-area: question;
     background-color: #colors[question];
-    font-size: 2em;
+    font-size: 1.5em;
     .boxed();
     .rounded();
 }
 
 .item-header {
     grid-area: header;
-    font-size: 2.2em;
-    font-weight: 900;
+    font-size: 2em;
     text-align: start;
     .boxed();
+}
+
+.item-result {
+    grid-area: result;
+    display: none;
+}
+
+.item-result p {
+    background-color: #colors[result];
+    border: 1px solid #colors[result];
+    .boxed();
+    .rounded();
+    .clickable();
+    color: #colors[dark];
 }
 
 .item-progress {
@@ -70,7 +96,7 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr;
-    gap: 30px 30px;
+    gap: 50px 50px;
     margin-top: 30px;
 }
 
@@ -80,20 +106,31 @@
     .boxed();
     .rounded();
     color: #colors[dark];
-    font-size: 1.5em;
-    cursor: pointer;
-    transition: 1s;
-    &:hover {
-        background-color: transparent;
-        box-shadow: 0 4px 8px 0 #colors[dark];
-        color: #colors[answer];
-    }
+    font-size: 1.2em;
+    .clickable();
+}
+
+.item-next {
+    grid-area: button;
+    align-items: center;
+    .boxed();
+}
+
+.btn {
+    .rounded();
+    background-color: #colors[button];
+    border: 1px solid #colors[button];
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    padding-left: 4rem;
+    padding-right: 4rem;
+    .clickable();
 }
 
 body {
     font-family: 'Roboto', sans-serif;
     text-align: center;
     margin: 0;
-    background-image: @background-pic;
+    background-color: gray;
     background-size: cover;
 }

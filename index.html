@@ -17,8 +17,10 @@
         <!--[if lt IE 7]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
-        <div class="grid">
+        <div class="start-screen"></div>
+        <div class="grid" >
             <div class="item-header">Czy jesteś foliarzem?</div>
+            <div class="item-result"><p>WYNIK</p></div>
             <div class="item-progress">
                 <div><i class="far fa-star"></i></div>
                 <div><i class="far fa-star"></i></div>
@@ -27,15 +29,23 @@
                 <div><i class="far fa-star"></i></div>
                 <div><i class="far fa-star"></i></div>
             </div>
-            <div class="item-question">Covid-19 to spisek?</div>
+            <div class="item-question"></div>
             <div class="item-answer">
-                <div><p>Bill'a Gates'a i koncernów farmakologicznych</p></div>
-                <div><p>Reptilian z kondominium rosyjsko-niemieckiego pod żydowsko-amerykańskim zarządem powierniczym</p></div>
-                <div><p>Lekarzy i pielęgniarek, żeby podstępnie pracować po 14 godzin dziennie</p></div>
-                <div><p>Yyy, nie?</p></div>
-            </div>           
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>    
+            <div class="item-next">
+                <button class="btn" onclick="quiz.showQuestion()"><i class="fas fa-arrow-right"></i></button>
+            </div>       
         </div>
-
-        <script src="js/index.js" async defer></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="js/quiz-resources.js"></script>
+        <script src="js/quiz.js"></script>
+        <script>
+            var quiz = new Quiz();
+            quiz.showQuestion();
+        </script>
     </body>
 </html>

@@ -12,9 +12,9 @@ var quizResources = [
     {
         "question" : "Co powodują szczepionki?",
         "answers": [
-            "Odporność",
-            "Autyzm",
-            "Zniewolenie narodu",
+            "Odporność wobec określonej choroby",
+            "AUTYZM i śmierć",
+            "Zniewolenie narodu. Wyłącz odbiornik, włącz myślenie!",
             "Odporność, negowanie tego faktu realizuje reptiliański plan wybicia ludzkości"
         ],
         "results": [1, 0, 0, 0]
@@ -22,22 +22,22 @@ var quizResources = [
     {
         "question" : "Ziemia jest...",
         "answers": [
-            "okrągła",
+            "okrągła (a konkretniej jest elipsoidą obrotową spłaszczoną na biegunach)",
             "płaska",
-            "pusta w środku i zamieszkała przez reptilian",
-            "płaska i na grzbiecie żółwia"
+            "pusta w środku i zamieszkała przez wrogą rasę Reptilian",
+            "dyskiem spoczywającym na grzbietach czterech słoni, które stoją na skorupie żółwia płynącego przez Wszechświat"
         ],
         "results": [1, 0, 0, 0]
     },
     {
-        "question" : "EXAMPLE1...",
+        "question" : "Co myślisz o technologii 5G?",
         "answers": [
-            "okrągła",
-            "płaska",
-            "pusta w środku i zamieszkała przez reptilian",
-            "płaska i na grzbiecie żółwia"
+            "STOP L5GBT!",
+            "jest szkodliwym dla organizmu narzędziem kontroli umysłu",
+            "netflix będzie śmigał",
+            "hm, nie znam się, ale brzmi jakby ktoś chciał nas zaczipować (pewnie jak zawsze Reptilianie)"
         ],
-        "results": [1, 0, 0, 0]
+        "results": [0, 0, 1, 0]
     },
     {
         "question" : "EXAMPLE2...",

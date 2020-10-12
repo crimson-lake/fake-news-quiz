@@ -20,7 +20,7 @@
         <div class="start-screen"></div>
         <div class="grid" >
             <div class="item-header">Czy jesteś foliarzem?</div>
-            <div class="item-result"><p>WYNIK</p></div>
+            <div class="item-result" onclick="quiz.showResult()"><p>WYNIK</p></div>
             <div class="item-progress">
                 <div><i class="far fa-star"></i></div>
                 <div><i class="far fa-star"></i></div>
@@ -31,21 +31,18 @@
             </div>
             <div class="item-question"></div>
             <div class="item-answer">
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-            </div>    
-            <div class="item-next">
-                <button class="btn" onclick="quiz.showQuestion()"><i class="fas fa-arrow-right"></i></button>
-            </div>       
+                <div onclick="quiz.selectAnswer(0)"></div>
+                <div onclick="quiz.selectAnswer(1)"></div>
+                <div onclick="quiz.selectAnswer(2)"></div>
+                <div onclick="quiz.selectAnswer(3)"></div>
+            </div>         
         </div>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="js/quiz-resources.js"></script>
         <script src="js/quiz.js"></script>
         <script>
             var quiz = new Quiz();
-            quiz.showQuestion();
+            quiz.showNextQuestion();
         </script>
     </body>
 </html>

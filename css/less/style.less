@@ -26,13 +26,17 @@
     margin-right: @body-margin;
 }
 
+.hovered {
+    background-color: transparent;
+    color: #colors[answer];
+}
+
 .clickable {
     cursor: pointer;
     transition: 1s;
     &:hover {
-        background-color: transparent;
+        .hovered();
         box-shadow: 0 4px 8px 0 #colors[dark];
-        color: #colors[answer];
     }
 }
 
@@ -44,8 +48,7 @@
         "header header result"
         "question question progress"
         "answer answer progress"
-        "answer answer progress"
-        "button button .";
+        "answer answer progress";
     .container();
 }
 
@@ -72,7 +75,7 @@
 .item-result p {
     background-color: #colors[result];
     border: 1px solid #colors[result];
-    .boxed();
+    padding: 1rem;
     .rounded();
     .clickable();
     color: #colors[dark];
@@ -91,40 +94,38 @@
     font-size: 2em;
 }
 
-.item-answer {
-    grid-area: answer;
+.grid-answer {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr;
-    gap: 50px 50px;
+    gap: 20px 20px;
     margin-top: 30px;
+}
+
+.item-answer {
+    grid-area: answer;
+    align-items: center;
+    .grid-answer();
 }
 
 .item-answer div {
     background-color: #colors[answer];
     border: 1px solid #colors[answer];
+    height: 120px;
+    font-size: 1.3em;
     .boxed();
     .rounded();
     color: #colors[dark];
-    font-size: 1.2em;
     .clickable();
 }
 
-.item-next {
-    grid-area: button;
+.item-your-result {
+    grid-area: answer;
     align-items: center;
-    .boxed();
 }
 
-.btn {
-    .rounded();
-    background-color: #colors[button];
-    border: 1px solid #colors[button];
-    padding-top: 1rem;
-    padding-bottom: 1rem;
-    padding-left: 4rem;
-    padding-right: 4rem;
-    .clickable();
+.item-your-result p {
+    font-size: 2em;
 }
 
 body {

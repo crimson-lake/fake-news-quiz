@@ -30,20 +30,24 @@
   margin-left: 5%;
   margin-right: 5%;
 }
+.hovered {
+  background-color: transparent;
+  color: #F6F7F8;
+}
 .clickable {
   cursor: pointer;
   transition: 1s;
 }
 .clickable:hover {
   background-color: transparent;
-  box-shadow: 0 4px 8px 0 #011627;
   color: #F6F7F8;
+  box-shadow: 0 4px 8px 0 #011627;
 }
 .grid {
   display: grid;
   grid-template-columns: 2fr 2fr 0.5fr;
   grid-template-rows: 1fr auto 2fr 2fr 1fr;
-  grid-template-areas: "header header result" "question question progress" "answer answer progress" "answer answer progress" "button button .";
+  grid-template-areas: "header header result" "question question progress" "answer answer progress" "answer answer progress";
   margin-left: 5%;
   margin-right: 5%;
 }
@@ -69,8 +73,7 @@
 .item-result p {
   background-color: yellow;
   border: 1px solid yellow;
-  color: #F6F7F8;
-  padding: 1.5rem;
+  padding: 1rem;
   border-radius: 1.5rem;
   cursor: pointer;
   transition: 1s;
@@ -78,8 +81,8 @@
 }
 .item-result p:hover {
   background-color: transparent;
-  box-shadow: 0 4px 8px 0 #011627;
   color: #F6F7F8;
+  box-shadow: 0 4px 8px 0 #011627;
 }
 .item-progress {
   grid-area: progress;
@@ -92,51 +95,45 @@
   color: #F6F7F8;
   font-size: 2em;
 }
-.item-answer {
-  grid-area: answer;
+.grid-answer {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr;
-  gap: 50px 50px;
+  gap: 20px 20px;
+  margin-top: 30px;
+}
+.item-answer {
+  grid-area: answer;
+  align-items: center;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 20px 20px;
   margin-top: 30px;
 }
 .item-answer div {
   background-color: #F6F7F8;
   border: 1px solid #F6F7F8;
+  height: 120px;
+  font-size: 1.3em;
   color: #F6F7F8;
   padding: 1.5rem;
   border-radius: 1.5rem;
   color: #011627;
-  font-size: 1.2em;
   cursor: pointer;
   transition: 1s;
 }
 .item-answer div:hover {
   background-color: transparent;
-  box-shadow: 0 4px 8px 0 #011627;
   color: #F6F7F8;
+  box-shadow: 0 4px 8px 0 #011627;
 }
-.item-next {
-  grid-area: button;
+.item-your-result {
+  grid-area: answer;
   align-items: center;
-  color: #F6F7F8;
-  padding: 1.5rem;
 }
-.btn {
-  border-radius: 1.5rem;
-  background-color: pink;
-  border: 1px solid pink;
-  padding-top: 1rem;
-  padding-bottom: 1rem;
-  padding-left: 4rem;
-  padding-right: 4rem;
-  cursor: pointer;
-  transition: 1s;
-}
-.btn:hover {
-  background-color: transparent;
-  box-shadow: 0 4px 8px 0 #011627;
-  color: #F6F7F8;
+.item-your-result p {
+  font-size: 2em;
 }
 body {
   font-family: 'Roboto', sans-serif;

@@ -43,9 +43,9 @@ Quiz.prototype.clearQuizBoard = function() {
 
 Quiz.prototype.showResult = function() {
     if (this.result > 4) {
-        $(".item-your-result").load("resultNo.html");
+        $(".item-your-result").load("fragments/resultNo.html");
     } else {
-        $(".item-your-result").load("resultYes.html");
+        $(".item-your-result").load("fragments/resultYes.html");
     }
     console.log(this.result);
 }

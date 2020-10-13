@@ -1,24 +1,26 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;500;900&display=swap');
 @body-margin: 5%;
-@background-pic: url("https://images.unsplash.com/photo-1576086213369-97a306d36557?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=80"); 
 
 #colors() {
-    header: #011627;
-    question: #2EC4B6;
-    answer: #F6F7F8;
-    light:#F6F7F8;
-    dark: #011627;
-    button: pink;
-    result: yellow;
+    body: #272727;
+    question: #FC814A;
+    answer: #ffd25a;
+    light:#FFF05A;
+    dark: #191919;
+    result: #7F7EFF;
 }
 
 .boxed {
-    color: #colors[light];
+    color: #colors[dark];
     padding: 1.5rem;
 }
 
 .rounded {
     border-radius: 1.5rem;
+}
+
+.shadow {
+    text-shadow: 4px 2px 2px #colors[dark];
 }
 
 .container {
@@ -42,13 +44,35 @@
 
 .grid {
     display: grid;
-    grid-template-columns: 2fr 2fr 0.5fr;
-    grid-template-rows: 1fr auto 2fr 2fr 1fr;
-    grid-template-areas: 
-        "header header result"
-        "question question progress"
-        "answer answer progress"
-        "answer answer progress";
+    @media screen {
+        grid-template-columns: 2fr 2fr 0.5fr;
+        grid-template-rows: 1fr auto 2fr 2fr;
+        grid-template-areas: 
+            "header header header"
+            "question question progress"
+            "answer answer progress"
+            "answer answer progress";
+        @media (max-width: 640px) {
+            grid-template-columns: 2fr 2fr;
+            grid-template-rows: auto auto auto 1fr 1fr;
+            grid-template-areas: 
+                "header header"
+                "progress progress"
+                "question question"
+                "answer answer"
+                "answer answer";
+        }
+        @media (max-width: 425px) {
+            grid-template-columns: 1fr;
+            grid-template-rows: auto;
+            grid-template-areas: 
+                "header"
+                "progress"
+                "question"
+                "answer"
+                "answer";
+        }
+    }
     .container();
 }
 
@@ -57,49 +81,52 @@
     background-color: #colors[question];
     font-size: 1.5em;
     .boxed();
-    .rounded();
 }
 
 .item-header {
     grid-area: header;
-    font-size: 2em;
-    text-align: start;
     .boxed();
-}
-
-.item-result {
-    grid-area: result;
-    display: none;
-}
-
-.item-result p {
-    background-color: #colors[result];
-    border: 1px solid #colors[result];
-    padding: 1rem;
-    .rounded();
-    .clickable();
-    color: #colors[dark];
+    color: #colors[light];
+    font-size: 2em;
+    .shadow();
+    text-align: start;
 }
 
 .item-progress {
     grid-area: progress;
     display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: repeat(1fr, 6);
+    @media screen {
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(6, 1fr); 
+        @media (max-width: 640px) {
+            grid-template-columns: repeat(6, 1fr); 
+            grid-template-rows: 1fr;
+            margin-bottom: 5px;
+        }
+    }
     align-items: center;
 }
 
 .item-progress div {
     color: #colors[light];
+    .shadow();
     font-size: 2em;
 }
 
 .grid-answer {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
-    gap: 20px 20px;
-    margin-top: 30px;
+    @media screen {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+        gap: 20px 20px;
+        margin-top: 30px;
+        @media (max-width: 425px) {
+            grid-template-columns: 1fr;
+            grid-template-rows: 1fr 1fr 1fr 1fr;
+            margin-top: 10px;
+            gap: 10px;
+        }
+    }
 }
 
 .item-answer {
@@ -111,10 +138,20 @@
 .item-answer div {
     background-color: #colors[answer];
     border: 1px solid #colors[answer];
-    height: 120px;
-    font-size: 1.3em;
+    @media screen {
+        height: 120px;
+        font-size: 1.3em;
+        @media (max-width: 768px) {
+            font-size: 0.9em;
+        }
+        @media (max-width: 484px) {
+            font-size: 0.8em;;
+        }
+        @media (max-width: 425px) {
+            font-size: 1em;;
+        }
+    }
     .boxed();
-    .rounded();
     color: #colors[dark];
     .clickable();
 }
@@ -122,16 +159,23 @@
 .item-your-result {
     grid-area: answer;
     align-items: center;
+    border: 1px solid #colors[result];
+    .boxed();
+    font-size: 1.5em;
+    font-weight: 300;
 }
 
-.item-your-result p {
-    font-size: 2em;
+.yellow {
+    color: #colors[light];
+}
+
+.white {
+    color: white;
 }
 
 body {
     font-family: 'Roboto', sans-serif;
     text-align: center;
     margin: 0;
-    background-color: gray;
-    background-size: cover;
+    background-color: #colors[body];
 }

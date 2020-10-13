@@ -4,16 +4,18 @@ const halfStar = "<i class=\"fas fa-star-half-alt\"></i>";
 function Quiz() {
     this.currentQuestion = 0;
     this.lastQuestion = quizResources.length;
-    this.starCounter = this.lastQuestion - this.currentQuestion;
     this.result = 0;
 }
 
 Quiz.prototype.showNextQuestion = function() {
-    this.setProgress(this.starCounter--, fullStar);
+    if (this.currentQuestion != 0) {
+        this.setProgress(this.currentQuestion - 1, fullStar);
+    }
     if (this.currentQuestion == this.lastQuestion) {
-        $(".item-result").css("display", "block");
+        this.clearQuizBoard();
+        this.showResult();
     } else {
-        this.setProgress(this.starCounter, halfStar);
+        this.setProgress(this.currentQuestion, halfStar);
         var quizItem = quizResources[this.currentQuestion];
         
         $(".item-question").html(quizItem.question);
@@ -34,13 +36,16 @@ Quiz.prototype.setProgress = function(counter, icon) {
     $(".item-progress div").eq(counter).html(icon);
 }
 
-Quiz.prototype.showResult = function() {
-    $(".item-answer").removeClass("item-answer").addClass("item-your-result");
+Quiz.prototype.clearQuizBoard = function() {
+    $(".item-answer").removeClass("item-answer").addClass("item-your-result").html("");
     $(".item-question").remove();
+}
+
+Quiz.prototype.showResult = function() {
     if (this.result > 4) {
-        $(".item-your-result").html("<p>Nie jesteś. Dobra robota!</p>")
+        $(".item-your-result").load("resultNo.html");
     } else {
-        $(".item-your-result").html("<p>Żółte napisy w Tobie silne!</p>")
+        $(".item-your-result").load("resultYes.html");
     }
     console.log(this.result);
 }

@@ -37,15 +37,14 @@ Quiz.prototype.setProgress = function(counter, icon) {
 }
 
 Quiz.prototype.clearQuizBoard = function() {
-    $(".item-answer").removeClass("item-answer").addClass("item-your-result").html("");
+    $(".item-answer").remove();
     $(".item-question").remove();
 }
 
 Quiz.prototype.showResult = function() {
     if (this.result > 4) {
-        $(".item-your-result").load("fragments/resultNo.html");
+        $(".white").show();
     } else {
-        $(".item-your-result").load("fragments/resultYes.html");
+        $(".yellow").show();
     }
-    console.log(this.result);
 }
